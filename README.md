@@ -1,4 +1,4 @@
-# Segmented Operations in Futhark [![Build Status](https://travis-ci.org/diku-dk/segmented.svg?branch=master)](https://travis-ci.org/diku-dk/segmented)
+# Segmented Operations in Futhark [![Build Status](https://travis-ci.org/diku-dk/segmented.svg?branch=master)](https://travis-ci.org/diku-dk/segmented) [![Documentation](https://futhark-lang.org/pkgs/github.com/diku-dk/segmented/status.svg)](https://futhark-lang.org/pkgs/github.com/diku-dk/segmented/latest/)
 
 A library for perfoming irregular segmented operations in Futhark.
 For regular segments, just use `map`.
