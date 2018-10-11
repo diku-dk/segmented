@@ -14,7 +14,7 @@ $ futhark-pkg sync
 
 ```
 > import "lib/github.com/diku-dk/segmented/segmented"
-> segmented_reduce (+) 0 [true,false,false,true,false] (iota 10)
+> segmented_reduce (+) 0 [true,false,false,true,false] (iota 5)
 [3i32, 7i32]
 ```
 
