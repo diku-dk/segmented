@@ -26,7 +26,7 @@ let segmented_reduce [n] 't (op: t -> t -> t) (ne: t)
   let segment_ends = rotate 1 flags
   -- Find the offset for each segment end.
   let segment_end_offsets = segment_ends |> map i32.bool |> scan (+) 0
-  let num_segments = if n > 1 then segment_end_offsets[n-1] else 0
+  let num_segments = if n > 0 then last segment_end_offsets else 0
   -- Make room for the final result.  The specific value we write here
   -- does not matter; they will all be overwritten by the segment
   -- ends.
