@@ -6,8 +6,8 @@ For regular segments, just use `map`.
 ## Installation
 
 ```
-$ futhark-pkg add github.com/diku-dk/segmented
-$ futhark-pkg sync
+$ futhark pkg add github.com/diku-dk/segmented
+$ futhark pkg sync
 ```
 
 ## Usage
