@@ -100,4 +100,4 @@ let expand_outer_reduce 'a 'b [n] (sz: a -> i32) (get: a -> i32 -> b)
   let sz' x = let s = sz x
               in if s == 0 then 1 else s
   let get' x i = if sz x == 0 then ne else get x i
-  in (expand_reduce sz' get' op ne arr) :> [n]b
+  in expand_reduce sz' get' op ne arr :> [n]b
