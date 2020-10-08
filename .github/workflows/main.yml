@@ -28,4 +28,5 @@ jobs:
 
     - name: Run tests
       run: |
-        futhark test -c --no-terminal --backend=opencl .
+        futhark pkg sync
+        futhark test -c --backend=c .
