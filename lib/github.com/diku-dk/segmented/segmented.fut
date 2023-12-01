@@ -63,14 +63,14 @@ def segmented_iota [n] (flags:[n]bool) : [n]i64 =
 -- returns the arrays [0,0,1,1,1,2] and [0,1,0,1,2,0].
 
 def repl_segm_iota [n] (reps:[n]i64) : ([]i64, []i64) =
-    if n == 0 then ([], []) else (
+    if n == 0 then ([], []) else
     let offsets = scan (+) 0 reps
     let start_idx = map2 (-) offsets reps
     let sz = last offsets
     let repl = hist (+) 0 sz offsets (replicate n 1)
             |> scan (+) 0
     let segm = tabulate sz (\i -> i - start_idx[repl[i]])
-    in (repl, segm))
+    in (repl, segm)
 
 -- | Generic expansion function. The function expands a source array
 -- into a target array given (1) a function that determines, for each
