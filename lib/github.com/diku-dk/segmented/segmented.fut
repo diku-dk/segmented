@@ -26,16 +26,10 @@ def segmented_reduce [n] 't
                      (ne: t)
                      (flags: [n]bool)
                      (as: [n]t) =
-  let offsets = map i64.bool flags |> scan (+) 0
-  let segscans = segmented_scan op ne flags as
-  let index f i = if f then i - 1 else -1
-  let is = map2 index (rotate 1 flags) offsets
-  let result = scatter (#[scratch] [as][0]) is segscans
-  let count =
-    scatter [0]
-            (map (\j -> if j == n - 1 then 0 else -1) (iota n))
-            offsets
-  in result[:count[0]]
+  segmented_scan op ne flags as
+  |> zip (rotate 1 flags)
+  |> filter (.0)
+  |> map (.1)
 
 -- | Replicated iota. Given a repetition array, the function returns
 -- an array with each index (starting from 0) repeated according to
