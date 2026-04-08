@@ -53,6 +53,8 @@ entry test_segmented_iota (flags:[]bool) : []i64 =
 -- entry: test_expand
 -- input { [2i64,3i64,1i64] }
 -- output { [0i64,2i64,0i64,3i64,6i64,0i64] }
+-- input { [0i64,0i64,3i64,1i64] }
+-- output { [0i64,3i64,6i64,0i64] }
 
 entry test_expand (arr:[]i64) : []i64 =
   expand (\ x -> x) (\x i -> x*i) arr
