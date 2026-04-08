@@ -39,6 +39,17 @@ entry test_replicated_iota (repl: []i64) : []i64 =
   replicated_iota repl
 
 -- ==
+-- entry: test_repl_segm_iota
+-- input { [2i64,3i64,1i64] } output { [0i64,0i64,1i64,1i64,1i64,2i64] [0i64,1i64,0i64,1i64,2i64,0i64] }
+-- input { [3i64] } output { [0i64,0i64,0i64] [0i64,1i64,2i64] }
+-- input { [2i64,0i64,1i64] } output { [0i64,0i64,2i64] [0i64,1i64,0i64] }
+-- input { empty([0]i64) } output { empty([0]i64) empty([0]i64) }
+-- input { [0i64] } output { empty([0]i64) empty([0]i64) }
+-- input { [0i64,0i64] } output { empty([0]i64) empty([0]i64) }
+entry test_repl_segm_iota (repl: []i64) : ([]i64, []i64) =
+  repl_segm_iota repl
+
+-- ==
 -- entry: test_segmented_iota
 -- input { [false,false,false,true,false,false,false] }
 -- output { [0i64,1i64,2i64,0i64,1i64,2i64,3i64] }
